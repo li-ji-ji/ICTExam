@@ -229,17 +229,24 @@ public class ExercisesServiceImpl implements ExercisesService {
 	@Override
 	public List<Integer> getExersByCountAndType(Integer exerType,Integer count)throws Exception{
 		Integer max=getCountByTypeOnRedis(exerType);
-		int[] exersNum=new GetRandomArray().getArray(count, max);
-		Integer[] exersNoArr=getExersNoByType(exerType);
-		//随机题目序号列表
 		List<Integer> exerNoList=new ArrayList<>();
-		List<Exercises> exers=new ArrayList<>();
-		//System.out.println(exersNum);
-		for(int key:exersNum) {
-//			System.out.println(key);
-//			System.out.println(exersNoArr[key]);
-//			exers.add(getExercisesById(exersNoArr[key]));
-			exerNoList.add(exersNoArr[key]);
+		if(exerType!=3) {
+			int[] exersNum=new GetRandomArray().getArray(count, max);
+			Integer[] exersNoArr=getExersNoByType(exerType);
+			//随机题目序号列表
+			List<Exercises> exers=new ArrayList<>();
+			//System.out.println(exersNum);
+			for(int key:exersNum) {
+//				System.out.println(key);
+//				System.out.println(exersNoArr[key]);
+//				exers.add(getExercisesById(exersNoArr[key]));
+				exerNoList.add(exersNoArr[key]);
+			}
+		}else{
+			List<Exercises> exers=getExercisesByExerciseType(3);
+			for(Exercises exer:exers) {
+				exerNoList.add((int) exer.getId());
+			}
 		}
 		return exerNoList;
 	}

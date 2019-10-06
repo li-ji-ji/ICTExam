@@ -35,7 +35,7 @@ public class User implements Serializable{
 	private String salt;
 	@Column(nullable=false)
 	private Integer status;
-	@Column(nullable=false)
+	@Column(nullable=false,insertable = false,columnDefinition = "int default 0")
 	private Double score;
 	
 	

@@ -54,6 +54,7 @@ layui.use(['table','laypage','layer'], function(){
 	        ,{field: 'stuId', title: '用户ID',align:'center', width:120, sort: true, fixed: 'left'}
 	        ,{field: 'username', title: '用户名',edit: 'text', align:'center',width:120}
 	        ,{field: 'password', title: '用户密码',edit: 'text',align:'center', width:120, sort: true}
+	        ,{field: 'score', title: '用户分数',edit: 'text',align:'center', width:120, sort: true}
 	        ,{field: 'salt', title: '用户盐',edit: 'text',align:'center', width:160} 
 	        ,{field: 'status', title: '用户状态',align:'center', width:120,templet: '#statusCheck', unresize: true}
 	        ,{field: 'url', title: '操作栏',align:'center', width: 220, sort: true,toolbar: '#editTool', fixed: 'right'}
